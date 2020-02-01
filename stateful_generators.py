@@ -6,6 +6,34 @@ def main():
     run_distinct()
     run_pipeline()
     open_ended_sequence_example_using_iter_tools_and_islice()
+    any_all_use()
+    zip_use()
+
+
+def zip_use():
+    # temp readings from two days
+    sunday = [12, 14, 15, 15, 17]
+    monday = [13, 14, 14, 13, 15]
+
+    for item in zip(sunday, monday):
+        print(item)
+
+    # can also use it with tuple unpacking in the for loop
+    for sun, mon in zip(sunday, monday):
+        print("avarage=", (sun + mon) / 2)
+
+    # using he min and max built ins
+    tuesday = [2, 3, 5, 14, 16]
+    for temps in zip(sunday, monday, tuesday):
+        print("min={:4.1f}, max={:4.1f}, average={:4.1f}".format(
+            min(temps), max(temps), sum(temps) / len(temps)
+        ))
+
+
+def any_all_use():
+    print(any([False, False, True]))
+    print(all([False, False, True]))
+    print(any(is_prime(x) for x in range(1328, 1361)))
 
 def open_ended_sequence_example_using_iter_tools_and_islice():
     from itertools import islice, count
