@@ -3,10 +3,17 @@
 def main():
     run_take()
     run_distinct()
+    run_pipeline()
 
 def run_distinct():
     items = [5, 7, 7, 6, 5, 5]
     for item in distinct(items):
+        print(item)
+
+def run_pipeline():
+    items = [3, 6, 6, 2, 1, 1]
+    # distinct is lazy, it pays to be lazy as the full list isn't retrieved to get the first 3 distinct items.
+    for item in take(3, distinct(items)):
         print(item)
 
 def run_take():
