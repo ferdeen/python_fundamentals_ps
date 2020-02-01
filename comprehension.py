@@ -69,6 +69,12 @@ def all_primes_less_than_100():
     result = [x for x in range(101) if is_prime(x)]
     pp(result)    
 
+    # Use filtering building a dictionary
+    print("\n\nall_primes_less_than_100 with prime square divsors")
+    prime_sq_divisors = {x*x:(1, x, x*x) for x in range(101) 
+                            if is_prime(x)}
+    pp(prime_sq_divisors)
+
 
 
 
