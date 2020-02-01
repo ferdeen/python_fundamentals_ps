@@ -65,6 +65,7 @@ def is_prime(x):
     return True
 
 def all_primes_less_than_100():
+    # Using optional filtering clause (if predicate(item))
     result = [x for x in range(101) if is_prime(x)]
     pp(result)    
 
