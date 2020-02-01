@@ -1,5 +1,6 @@
 """Module for demonstrating generator execution."""
 
+#https://docs.python.org/3/library/itertools.html
 def main():
     run_take()
     run_distinct()
