@@ -10,7 +10,7 @@ def listExample():
     wordslen = [len(word) for word in words]
     print(wordslen)
 
-    # above would normally be written in an imparative way as such
+    # Above would normally be written in an imparative way as such
     lengths = []
     for word in words:
         lengths.append(len(word))
