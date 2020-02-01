@@ -8,7 +8,17 @@ def main():
     open_ended_sequence_example_using_iter_tools_and_islice()
     any_all_use()
     zip_use()
+    lazily_concat_lists_using_chain()
 
+def lazily_concat_lists_using_chain():
+    from itertools import chain
+
+    sunday = [12, 14, 15, 15, 17]
+    monday = [13, 14, 14, 13, 15]
+    tuesday = [2, 3, 5, 14, 16]
+    temps = chain(sunday, monday, tuesday)
+    #check all temps are above freezing point
+    print(all(t > 0 for t in temps))
 
 def zip_use():
     # temp readings from two days
