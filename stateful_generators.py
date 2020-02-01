@@ -5,6 +5,25 @@ def main():
     run_take()
     run_distinct()
     run_pipeline()
+    open_ended_sequence_example_using_iter_tools_and_islice()
+
+def open_ended_sequence_example_using_iter_tools_and_islice():
+    from itertools import islice, count
+
+    thousand_primes = islice((x for x in count() if is_prime(x)), 1000)
+    print(sum(list(thousand_primes)))
+
+def is_prime(x):
+
+    from math import sqrt
+
+    if x < 2:
+        return False
+    for i in range(2, int(sqrt(x)) + 1):
+        if x % i == 0:
+            return False
+    return True
+
 
 def run_distinct():
     items = [5, 7, 7, 6, 5, 5]
