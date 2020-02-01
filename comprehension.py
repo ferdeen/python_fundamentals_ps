@@ -27,8 +27,8 @@ def dictExample():
     
     capital_to_country = {capital: country for country, capital in country_to_capital.items()}
 
-    print(country_to_capital)
-    print(capital_to_country)
+    pp(country_to_capital)
+    pp(capital_to_country)
 
 def setWithDicKeysExample():
     # Duplicates: later keys overwrite earlier keys
@@ -42,11 +42,12 @@ def fileSizeExample():
 
     import os
     import glob
+    from pprint import pprint as pp
 
     file_sizes = {os.path.realpath(p): os.stat(p).st_size
                     for p in glob.glob('*.py')}
 
-    print(file_sizes)
+    pp(file_sizes)
 
 
 if __name__ == '__main__':
