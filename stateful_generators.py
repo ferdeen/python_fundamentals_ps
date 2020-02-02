@@ -32,7 +32,7 @@ def zip_use():
     for sun, mon in zip(sunday, monday):
         print("avarage=", (sun + mon) / 2)
 
-    # using he min and max built ins
+    # using the min and max built ins
     tuesday = [2, 3, 5, 14, 16]
     for temps in zip(sunday, monday, tuesday):
         print("min={:4.1f}, max={:4.1f}, average={:4.1f}".format(
