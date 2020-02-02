@@ -41,7 +41,7 @@ def types_example():
     print(type(x * x for x in [2, 4, 6]))
 
 def make_flight_example():
-    from classes.airtravel import make_flight, console_card_printer
+    from classes.airtravel import make_flight, console_card_printer, make_flights
 
     # Here have access to the flight class even though we have only imported the function make_flight() and console_card_printer()
     # This is becuase of python's dynamic type system can loosely couples code.
@@ -57,6 +57,13 @@ def make_flight_example():
     print(f.num_available_seat())
 
     f.make_boarding_cards(console_card_printer)
+
+    # Polymorphism and Duck Typing
+    a, b = make_flights()
+    print(a.aircraft_model())
+    a.make_boarding_cards(console_card_printer)
+    print(b.aircraft_model())
+    b.make_boarding_cards(console_card_printer)
 
 if __name__ == '__main__':
     main()

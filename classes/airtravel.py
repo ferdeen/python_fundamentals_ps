@@ -127,6 +127,36 @@ class Aircraft:
     def seating_plan(self):
         return (range(1, self._num_rows + 1), "ABCDEFGHJK"[:self._num_seats_per_row])
 
+# Polymorphisn and Duck Typing
+class AirbusA319:
+
+    def __init__(self, registration):
+        self._registration = registration
+
+    def registration(self):
+        return self._registration
+
+    def model(self):
+        return "Airbus A319"
+
+    def seating_plan(self):
+        return range(1, 23), "ABCDEF"
+
+class Boeing777:
+
+    def __init__(self, registration):
+        self._registration = registration
+
+    def registration(self):
+        return self._registration
+
+    def model(self):
+        return "Boing 777"
+
+    def seating_plan(self):
+        return range(1, 56), "ABCDEFGHJK"
+
+
 
 def make_flight():
     f = Flight("BA758", Aircraft("G-EUPT", "Airbus A319", num_rows=22, num_seats_per_row=6))
@@ -136,6 +166,22 @@ def make_flight():
     f.allocate_seat('1C', 'John McCarthy')
     f.allocate_seat('1D', 'Richard Hickey')
     return f
+
+def make_flights():
+    f = Flight("BA758", AirbusA319("G-EUPT"))
+    f.allocate_seat('12A', 'Guido van Rossum')
+    f.allocate_seat('15F', 'Bjarne Stroustrup')
+    f.allocate_seat('15E', 'Anders Hejlsberg')
+    f.allocate_seat('1C', 'John McCarthy')
+    f.allocate_seat('1D', 'Richard Hickey')
+
+    g = Flight("AF72", Boeing777("F-GSPS"))
+    g.allocate_seat('55K', 'Ferdeen Mughal')
+    g.allocate_seat('33G', 'Faron Mughal')
+    g.allocate_seat('4B', 'Callum Mughal')
+    g.allocate_seat('4A', 'Piers Mughal')
+
+    return f, g
 
 
 def console_card_printer(passenger, seat, flight_number, aircraft):
