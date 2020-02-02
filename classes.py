@@ -19,8 +19,16 @@ def main():
     pp(f._seating)
 
     f.allocate_seat("12A", "Ferdeen Mughal")
-    f.allocate_seat("12A", "Faron Mughal")
+    
+    try:
+        f.allocate_seat("12A", "Faron Mughal")
+    except ValueError as exp:
+        print(exp)
 
+    f.allocate_seat("12B", "Faron Mughal")
+    f.allocate_seat("14A", "Callum Mughal")
+
+    pp(f._seating)
 
 def types_example():
     print(type(5))
