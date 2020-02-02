@@ -1,3 +1,4 @@
+from pprint import pprint as pp
 from classes.airtravel import *
 
 def main():
@@ -13,8 +14,12 @@ def main():
     print(s)
 
     f = Flight("BA758", a)
-    
+
     print(f.aircraft_model())
+    pp(f._seating)
+
+    f.allocate_seat("12A", "Ferdeen Mughal")
+    f.allocate_seat("12A", "Faron Mughal")
 
 
 def types_example():
