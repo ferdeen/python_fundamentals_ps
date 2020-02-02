@@ -54,5 +54,7 @@ def make_flight_example():
     f.relocate_passenger('12A', '15D')
     pp(f._seating)
 
+    print(f.num_available_seat())
+
 if __name__ == '__main__':
     main()
