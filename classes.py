@@ -12,6 +12,11 @@ def main():
     print(m)
     print(s)
 
+    f = Flight("BA758", a)
+    
+    print(f.aircraft_model())
+
+
 def types_example():
     print(type(5))
     print(type("python"))
