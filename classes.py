@@ -1,7 +1,8 @@
+from classes.airtravel import *
 from pprint import pprint as pp
 
 def main():
-    from classes.airtravel import Flight, Aircraft
+
 
     print("types_example")
     types_example()
@@ -63,7 +64,13 @@ def make_flight_example():
     print(a.aircraft_model())
     a.make_boarding_cards(console_card_printer)
     print(b.aircraft_model())
-    b.make_boarding_cards(console_card_printer)
+    b.make_boarding_cards(console_card_printer) 
+
+    # Inheritence
+    y = AirbusA319("G-EZBT")
+    print(y.num_seats())
+    z = Boeing777("N717AN")
+    print(z.num_seats())
 
 if __name__ == '__main__':
     main()

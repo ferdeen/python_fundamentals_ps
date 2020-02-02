@@ -127,14 +127,21 @@ class Aircraft:
     def seating_plan(self):
         return (range(1, self._num_rows + 1), "ABCDEFGHJK"[:self._num_seats_per_row])
 
-# Polymorphisn and Duck Typing
-class AirbusA319:
+class AircraftBase:
 
     def __init__(self, registration):
         self._registration = registration
 
     def registration(self):
         return self._registration
+
+    def num_seats(self):
+        rows, row_seats = self.seating_plan()
+        return len(rows) * len(row_seats)
+
+
+# Polymorphisn and Duck Typing
+class AirbusA319(AircraftBase):
 
     def model(self):
         return "Airbus A319"
@@ -142,20 +149,13 @@ class AirbusA319:
     def seating_plan(self):
         return range(1, 23), "ABCDEF"
 
-class Boeing777:
-
-    def __init__(self, registration):
-        self._registration = registration
-
-    def registration(self):
-        return self._registration
+class Boeing777(AircraftBase):
 
     def model(self):
         return "Boing 777"
 
     def seating_plan(self):
         return range(1, 56), "ABCDEFGHJK"
-
 
 
 def make_flight():
