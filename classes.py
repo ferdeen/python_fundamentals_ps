@@ -1,7 +1,8 @@
 from pprint import pprint as pp
-from classes.airtravel import *
 
 def main():
+    from classes.airtravel import Flight, Aircraft
+
     print("types_example")
     types_example()
 
@@ -30,11 +31,28 @@ def main():
 
     pp(f._seating)
 
+    make_flight_example()
+
+
 def types_example():
     print(type(5))
     print(type("python"))
     print(type([1,2,3]))
     print(type(x * x for x in [2, 4, 6]))
+
+def make_flight_example():
+    from classes.airtravel import make_flight
+
+    # Here have access to the flight class even though we have only imported the function make_flight()
+    # This is becuase of python's dynamic type system can loosely couples code.
+
+    f = make_flight()
+    print(f)
+
+    # Reallocate passenger - Move Guido van Rossum closer to Anders Hejlsberg & Bjarne Stroustrup
+    pp(f._seating)
+    f.relocate_passenger('12A', '15D')
+    pp(f._seating)
 
 if __name__ == '__main__':
     main()
